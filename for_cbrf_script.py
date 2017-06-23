@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Попытаемся достать инфу по ставкам с сайта, чтобы руками на лазать
 # https://codeexperiments.quora.com/Extracting-Flipkart-reviews-through-web-scraping
+# https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 
 import requests
 import sys
@@ -16,8 +17,9 @@ f.write(data)
 soup = BeautifulSoup(r.content.decode(encoding='UTF-8'), "lxml")
 collection = soup.find_all("tr", {"class": "red"})
 # for elem in collection:
-
-print(collection)
+for link in collection:
+    print(link.get_text())
+# print(collection)
 '''
 href = []
 
